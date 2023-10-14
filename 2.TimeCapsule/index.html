@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间胶囊</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        body{
+            min-width: 800px;
+        }
+        .main{
+            width: 40%;
+            margin: 0 auto;
+            display: flex;
+            justify-content:center;
+            flex-direction: column;
+        }
+        .main img{
+            margin: 100px 0 10px 0;
+        }
+        .main  .capsule{
+            text-align: center;
+            font-size: 40px;
+            padding-bottom: 30px;
+        }
+        .main .buttons{
+            display: flex;
+            justify-content:space-between;
+        }
+        .main .buttons button{
+            border: none;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+        }
+        .main .buttons button .e{
+            font-size: 48px;
+        }
+        .main .buttons button .c{
+            font-size: 16px;
+            margin: 0 auto;
+        }
+    </style> 
+    <script>
+        window.onload = function(){
+            var put = document.getElementsByClassName("put")[0];
+            put.onclick = function(){
+                //当前页面跳转
+                window.location.href = "./pages/add.html";  
+            }
+
+            var open = document.getElementsByClassName("open")[0];
+            open.onclick = function(){
+                //当前页面跳转
+                window.location.href = "./pages/open.html";  
+            }
+        }  
+    </script>
+</head>
+<body>
+    <div class="main">
+        <img src="./images/logo_big.png" alt="">
+        <span class="capsule">时间胶囊</span>
+        <div class="buttons">
+            <button class="put">
+                    <span class="e">Put</span>
+                    <span class="c">添加</span>
+            </button>
+            <button class="open">
+                <span class="e">Open</span>
+                <span class="c">打开</span>
+            </button>
+        </div>
+    </div> 
+</body> 
+</html>

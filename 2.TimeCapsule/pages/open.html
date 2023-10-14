@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        .add{
+            color:rgb(100, 100, 100);
+        }
+        .nav{
+            box-shadow: 0px 2px #eee;
+        }
+        .nav .nav_item{
+            width: 40%;
+            margin: 0 auto;
+            display: flex;
+            align-items:center;
+        }
+        .nav .nav_item span{
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+        .nav .nav_item ul{
+            list-style: none;
+            display: flex;
+            font-size: 18px;
+        }
+        .nav .nav_item ul li {
+            padding: 15px;
+            color: inherit;
+            text-decoration: none;
+        }
+        .nav .nav_item ul li:hover{
+            color: rgb(90, 90, 90);
+            background-color: #dadada;
+            cursor:grab;
+        }
+        .openMain{
+            width: 40%;
+            margin: 0 auto;
+        }
+        .openCapsule{
+            padding-top: 20px;
+        }
+        .openCapsule p{
+            font-size: 30px;
+            font-weight: lighter;
+            padding: 10px 0;
+        }
+        .openCapsule input{
+            height: 2rem;
+            width: 250px;
+        }
+        .openCapsule button{
+            border: none;
+            color: white;
+            background-color: red;
+            width: 80px;
+            padding: 10px 0;
+        }
+        .openContent {
+            margin-top: 20px;
+            display: none;
+        }
+        .openContent .openShow{
+            font-weight: bold;
+            font-size: 24px;
+            padding: 15px 0;
+        }
+        .openContent .realTime{
+            font-size: 16px;
+            padding: 5px 0;
+            display: none;
+        }
+        .openContent .showContent{
+        border: 1px solid red;
+        padding: 10px;
+        }
+    </style>
+    <script>
+         window.onload = function(){
+            //导航栏跳转
+            var pageOne = document.getElementsByClassName("pageOne")[0];
+            pageOne.onclick = function(){
+                window.location.href = "../index.html";  
+            }
+            var pageTwo = document.getElementsByClassName("pageTwo")[0];
+            pageTwo.onclick = function(){
+                window.location.href = "./add.html";  
+            }  
+            
+            var openKey = document.getElementById("openKey");
+            var openButton = document.getElementsByClassName("openButton")[0];
+
+            var openContent = document.getElementsByClassName("openContent")[0];
+            var openShow = document.getElementsByClassName("openShow")[0];
+            var realTime = document.getElementsByClassName("realTime")[0];
+            var showContent  = document.getElementsByClassName("showContent")[0];
+
+            //获取存储的数据,是一个对象数组
+            var storedUser = JSON.parse(localStorage.getItem('userNumber')); 
+            openButton.onclick = function(){                
+                var findUser =  storedUser.find(element => element.password == openKey.value);
+                openContent.style.display = 'block';
+                if(findUser) {  
+                    var openTime= new Date(findUser.time); 
+                    var currentTime = new Date();
+                    if(currentTime>openTime){
+                        openShow.innerHTML = findUser.name +" 在 "+findUser.current_time+" 对你说: ";
+                        showContent.innerHTML = findUser.content;
+                    }else{
+                        openShow.innerHTML = "这颗胶囊未到提取时间，不能打开";
+                        realTime.style.display = 'block';
+                        //倒计时
+                        var wait = (openTime - currentTime)/1000; 
+                        var waitDay = parseInt(wait/(3600*24));
+                        var waithour =parseInt((wait%(3600*24))/3600);
+                        var waitMinute =parseInt((wait%(3600))/60);
+                        var waitSecond =parseInt(wait%60);
+                        realTime.innerHTML = "打开时间在 "+findUser.current_time+",距离现在 "+waitDay+"天"+waithour+":"+waitMinute+":"+waitSecond+"秒";
+                        showContent.innerHTML = findUser.name+"给你留的提示信息:\n"+findUser.clue;
+                    }
+                 }else{
+                    openShow.innerHTML = "请检查你输入的密匙"
+                    showContent.style.display = 'none';
+                 }
+            }
+        }
+    
+    </script>
+</head>
+<body>
+    <div class="nav">
+        <div class="nav_item">
+            <img src="../images/logo.gif" alt="">
+            <span>时间胶囊</span>   
+            <ul>
+                <li class="pageOne">首页</li>
+                <li class="pageTwo">添加</li>
+                <li class="pageThree">打开</li>
+            </ul>
+        </div>
+    </div>
+    <div class="openMain">
+        <div class="openCapsule">
+            <p>打开胶囊</p>
+            <label for="">胶囊Key：</label>
+            <input type="text" id="openKey">
+            <button class="openButton">打开胶囊</button>
+        </div>
+        <div class="openContent">
+                <p class="openShow"></p>
+                <span class="realTime"></span>
+                <div class="showContent"></div>
+        </div>
+    </div>
+    
+</body>
+</html>
