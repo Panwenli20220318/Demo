@@ -1,0 +1,77 @@
+#head {
+  background-color: #434343;
+  padding: 15px 0;
+}
+#images {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+#head #images img {
+  width: 20%;
+  border-radius: 15px;
+}
+#head #images img:hover {
+  cursor: pointer;
+  transform: rotate(15deg);
+  transition: transform 0.5s ease;
+}
+#content {
+  display: flex;
+  justify-content: center;
+}
+#myForm {
+  margin: 20px auto;
+}
+#myForm .row {
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+}
+#myForm .row .col_text {
+  flex-basis: 30%;
+  flex-shrink: 0;
+  text-align: end;
+  padding-right: 15px;
+}
+#myForm .row .col_input {
+  display: flex;
+  flex-wrap: wrap;
+}
+#myForm .row .col_input .radio_item,
+.checkbox_item {
+  margin-right: 10px;
+}
+#myForm .row .col_input .checkbox_item input {
+  margin-left: 5px;
+}
+#final {
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+}
+#final #submit,
+#reset {
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 20px;
+}
+#final #submit{
+    background-color: rgb(22, 119, 255);
+    color: white;
+}
+#back{
+  color: #595959;
+  font-size: 12px;
+  width: 24px;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 8px;
+  padding: 4px;
+  border: 1px solid #595959;
+  cursor: pointer;
+}
