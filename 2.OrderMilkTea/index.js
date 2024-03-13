@@ -4,6 +4,11 @@ formElement.addEventListener('submit', function (e) {
     e.preventDefault();  
     var formData = new FormData(formElement);
     const formJson = Object.fromEntries(formData.entries());
+    for (var pair of formData.entries()) {
+        console.log(pair);
+    }
+    console.log(formData);
+    console.log(formJson);
     // console.log(formJson);
     const text = `
         【您的订单已经生成】
