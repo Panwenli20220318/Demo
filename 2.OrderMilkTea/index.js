@@ -1,9 +1,16 @@
-var formElement = document.getElementById('myForm');
-formElement.addEventListener('submit', function (e) {
+var formElement = document.getElementById("myForm");
+formElement.addEventListener("submit", function (e) {
     //防止表单提交事件被触发，从而阻止浏览器默认的提交操作。
-    e.preventDefault();  
+    e.preventDefault();
     var formData = new FormData(formElement);
-    const formJson = Object.fromEntries(formData.entries());
+    const formJson = {};
+    for (var pair of formData.entries()) {
+        let key = pair[0];
+        let value = pair[1];
+        if (formJson.hasOwnProperty(key))
+            formJson[key] = formJson[key].concat("、"+value);
+        else formJson[key] = value;
+    }
     // console.log(formJson);
     const text = `
         【您的订单已经生成】
@@ -24,8 +31,6 @@ formElement.addEventListener('submit', function (e) {
     `;
     alert(text);
 });
-
-
 
 document.getElementById("back").addEventListener("click", function () {
     topFunction();
