@@ -9,7 +9,6 @@ body {
   flex-direction: column;
 }
 #main #round {
-  /* display: none; */
   font-size: 30px;
 }
 #main #game {
@@ -40,14 +39,17 @@ body {
 #main #game .gesture img {
   width: 90px;
   height: 90px;
+}
+#main #game #robot .gesture img {
   transform: rotate(45deg);
+}
+#main #game #myself .gesture img {
+  transform: rotateY(180deg);
+  transform: rotate(225deg);
 }
 #main #game .name {
   margin-bottom: 10px;
 }
-/* #main #result {
-    display: none;
-} */
 #main #start {
   margin-top: 50px;
 }
@@ -66,19 +68,19 @@ body {
   width: 300px;
 }
 #main #select-dialog::backdrop {
-    background-color: rgba(0, 0, 0, .45);
+  background-color: rgba(0, 0, 0, 0.45);
 }
-#main #select-dialog #select-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+#main #select-dialog #select-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 #main #select-dialog #select-form .row .select-gesture {
   padding: 4px 12px;
   border-radius: 4px;
 }
-#main #select-dialog #select-form button{
+#main #select-dialog #select-form button {
   margin-top: 10px;
   padding: 4px 12px;
   color: #fff;
@@ -87,7 +89,7 @@ body {
   border-radius: 6px;
   cursor: pointer;
 }
-#main #final{
+#main #final {
   margin-top: 50px;
   font-size: 24px;
   font-weight: 800;
