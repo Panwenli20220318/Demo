@@ -9,7 +9,7 @@ body {
   flex-direction: column;
 }
 #main #round {
-  display: none;
+  /* display: none; */
   font-size: 30px;
 }
 #main #game {
@@ -45,9 +45,9 @@ body {
 #main #game .name {
   margin-bottom: 10px;
 }
-#main #result {
+/* #main #result {
     display: none;
-}
+} */
 #main #start {
   margin-top: 50px;
 }
@@ -74,7 +74,7 @@ body {
     align-items: center;
     justify-content: center;
 }
-#main #select-dialog #select-form .row select {
+#main #select-dialog #select-form .row .select-gesture {
   padding: 4px 12px;
   border-radius: 4px;
 }
@@ -87,4 +87,8 @@ body {
   border-radius: 6px;
   cursor: pointer;
 }
-
+#main #final{
+  margin-top: 50px;
+  font-size: 24px;
+  font-weight: 800;
+}

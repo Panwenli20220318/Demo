@@ -9,41 +9,41 @@
   </head>
   <body>
     <div id="main">
-      <p id="round">第1回合（共3回合）</p>
+      <p id="round"></p>
       <div id="game">
         <div id="robot">
           <div class="gesture">
             <span class="prepare">?</span>
-            <!-- <img src="./images/paper.png" alt=""> -->
           </div>
           <p class="name">机器人</p>
-          <p class="score">胜：0 | 负：0</p>
+          <p class="score"></p>
         </div>
         <div id="myself">
           <div class="gesture">
             <span class="prepare">?</span>
           </div>
           <p class="name">潘文丽</p>
-          <p class="score">胜：0 | 负：0</p>
+          <p class="score"></p>
         </div>
       </div>
-      <div id="result">本回合你赢</div>
+      <div id="result"></div>
       <div id="start">
-        <button onclick="showDialog()">开始下一回合</button>
+        <button onclick="startGame()">开始下一回合</button>
       </div>
       <dialog id="select-dialog">
         <form id="select-form">
           <div class="row">
-            <label for="gesture">请选择要出的手势：</label>
-            <select id="gesture">
+            <label for="select-gesture">请选择要出的手势：</label>
+            <select id="select-gesture">
               <option value="rock">石头</option>
-              <option value="scissors">剪刀</option>
+              <option value="scissor">剪刀</option>
               <option value="paper">布</option>
             </select>
           </div>
-          <button onclick="hideDialog()">确定</button>
+          <button type="submit">确定</button>
         </form>
       </dialog>
+      <div id="final"></div>
     </div>
     <script src="./index.js"></script>
   </body>
