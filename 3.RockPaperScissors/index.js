@@ -87,7 +87,7 @@ function roundInfo() {
 
 //赢家信息展示
 function finishGame(roundCount) {
-  if (roundCount === 3) {
+  if (roundCount === 3|| robotScore.win === 2 || myselfScore.win === 2) {
     start.style.display = "none";
     if (robotScore.win === myselfScore.win)
       finalResult.innerHTML = `不错嘛，平局了`;
