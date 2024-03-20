@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>石头剪刀布</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="main">
+      <p id="round">第1回合（共3回合）</p>
+      <div id="game">
+        <div id="robot">
+          <div class="gesture">
+            <span class="prepare">?</span>
+            <!-- <img src="./images/paper.png" alt=""> -->
+          </div>
+          <p class="name">机器人</p>
+          <p class="score">胜：0 | 负：0</p>
+        </div>
+        <div id="myself">
+          <div class="gesture">
+            <span class="prepare">?</span>
+          </div>
+          <p class="name">潘文丽</p>
+          <p class="score">胜：0 | 负：0</p>
+        </div>
+      </div>
+      <div id="result">本回合你赢</div>
+      <div id="start">
+        <button onclick="showDialog()">开始下一回合</button>
+      </div>
+      <dialog id="select-dialog">
+        <form id="select-form">
+          <div class="row">
+            <label for="gesture">请选择要出的手势：</label>
+            <select id="gesture">
+              <option value="rock">石头</option>
+              <option value="scissors">剪刀</option>
+              <option value="paper">布</option>
+            </select>
+          </div>
+          <button onclick="hideDialog()">确定</button>
+        </form>
+      </dialog>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
